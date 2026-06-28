@@ -75,7 +75,7 @@ const techStack = ref<TechItem[]>([
   max-width: 1000px;
   margin: 0 auto;
   padding: 40px 20px;
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 129px);
 }
 
 .glass-card {

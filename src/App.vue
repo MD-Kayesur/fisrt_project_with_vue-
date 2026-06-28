@@ -1,31 +1,56 @@
 <template>
-  <div class="app-layout">
-    <header class="navbar glass-effect">
-      <div class="nav-container">
-        <div class="logo-section">
-          <div class="logo-glow"></div>
-          <span class="logo-icon">✨</span>
-          <span class="logo-text">Workspace</span>
+  <div class="min-h-screen flex flex-col">
+    <header class="sticky top-0 z-[100] h-[64px] border-b border-[#2e2e32] bg-[#1a1a1a] flex items-center">
+      <div class="max-w-[1200px] mx-auto px-6 w-full flex justify-between items-center">
+        <!-- Left Section: Logo & Search -->
+        <div class="flex items-center gap-4">
+          <RouterLink to="/" class="flex items-center gap-2 hover:opacity-90 transition-opacity">
+            <svg class="w-[24px] h-[24px]" viewBox="0 0 128 128">
+               <path fill="#42b883" d="M78.8,10L64,35.4L49.2,10H0l64,110l64-110H78.8z"/>
+              <path fill="#35495e" d="M78.8,10L64,35.4L49.2,10H25.6L64,76.5l38.4-66.5H78.8z"/>
+            </svg>
+            <span class="text-[15px] font-bold text-white tracking-tight">Vue.js</span>
+          </RouterLink>
+          
+         
         </div>
-        <nav class="nav-links">
-          <RouterLink to="/" class="nav-item" active-class="active-link">Home</RouterLink>
-          <RouterLink to="/about" class="nav-item" active-class="active-link">About</RouterLink>
+
+        <!-- Right Section: Navigation Links -->
+        <nav class="flex items-center gap-6 text-[13px] font-medium text-[#ebebeb]">
+          <RouterLink 
+            to="/" 
+            class="transition-colors hover:text-[#42b883]" 
+            active-class="text-[#42b883]"
+          >
+            Home
+          </RouterLink>
+
+          <RouterLink 
+            to="/about" 
+            class="transition-colors hover:text-[#42b883]" 
+            active-class="text-[#42b883]"
+          >
+            About
+          </RouterLink>
         </nav>
       </div>
     </header>
 
-    <main class="content-wrapper">
+    <main class="flex-grow">
       <router-view v-slot="{ Component }">
         <transition name="fade-page" mode="out-in">
           <component :is="Component" />
         </transition>
       </router-view>
     </main>
+
+    <AppFooter />
   </div>
 </template>
 
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import AppFooter from './components/AppFooter.vue'
 </script>
 
 <style>
@@ -40,7 +65,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 body {
   font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background: radial-gradient(circle at 30% 20%, #1e293b 0%, #0f172a 80%);
+  background-color: #1b1b1f;
   color: #f8fafc;
   min-height: 100vh;
   overflow-x: hidden;
@@ -49,100 +74,6 @@ body {
 </style>
 
 <style scoped>
-.app-layout {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  padding: 20px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.glass-effect {
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-}
-
-.nav-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo-section {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo-glow {
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  background: radial-gradient(circle, rgba(66, 184, 131, 0.4) 0%, rgba(66, 184, 131, 0) 70%);
-  filter: blur(4px);
-  left: -4px;
-}
-
-.logo-icon {
-  font-size: 1.5rem;
-  z-index: 1;
-}
-
-.logo-text {
-  font-size: 1.3rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, #fff 0%, #a0aec0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: -0.5px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 10px;
-  background: rgba(255, 255, 255, 0.03);
-  padding: 6px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.nav-item {
-  color: #94a3b8;
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
-  padding: 8px 18px;
-  border-radius: 8px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.nav-item:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.active-link {
-  color: #fff;
-  background: rgba(66, 184, 131, 0.15);
-  box-shadow: inset 0 0 12px rgba(66, 184, 131, 0.1);
-  border: 1px solid rgba(66, 184, 131, 0.15);
-}
-
-.content-wrapper {
-  flex-grow: 1;
-}
-
 /* Page Transitions */
 .fade-page-enter-active,
 .fade-page-leave-active {
