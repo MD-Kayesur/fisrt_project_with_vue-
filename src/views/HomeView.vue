@@ -1,28 +1,28 @@
 <template>
-  <main class="home-container">
-    <section class="glass-card hero-card animate-fade-in">
-      <div class="logo-animation">
-        <svg class="vue-logo" viewBox="0 0 128 128" width="80" height="80">
+  <main class="flex justify-center items-center min-h-[calc(100vh-100px)] p-5">
+    <section class="bg-white/[0.03] backdrop-blur-[16px] border border-white/[0.08] rounded-[24px] py-[50px] px-10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] w-full max-w-[580px] text-center transition-all duration-300 hover:border-[#42b883]/30 hover:shadow-[0_20px_50px_rgba(66,184,131,0.1)] animate-fade-in">
+      <div class="mb-6 inline-block animate-float">
+        <svg class="drop-shadow-[0_0_15px_rgba(66,184,131,0.4)]" viewBox="0 0 128 128" width="80" height="80">
           <path fill="#42b883" d="M78.8,10L64,35.4L49.2,10H0l64,110l64-110H78.8z"/>
           <path fill="#35495e" d="M78.8,10L64,35.4L49.2,10H25.6L64,76.5l38.4-66.5H78.8z"/>
         </svg>
       </div>
 
-      <h1 class="glow-text">{{ title }}</h1>
+      <h1 class="text-[2.5rem] font-extrabold mb-4 bg-gradient-to-br from-[#42b883] to-[#35495e] bg-clip-text text-transparent drop-shadow-[0_2px_8px_rgba(66,184,131,0.2)]">{{ title }}</h1>
 
-      <p class="description">{{ description }}</p>
+      <p class="text-[#a0aec0] text-[1.05rem] leading-[1.6] mb-[35px]">{{ description }}</p>
 
-      <div class="action-section">
-        <button class="action-btn" @click="handleClick">
-          <span>Click Me</span>
-          <div class="btn-glow"></div>
+      <div class="flex justify-center">
+        <button class="group relative py-[14px] px-8 text-base font-semibold text-white bg-gradient-to-br from-[#42b883] to-[#2bb876] rounded-xl overflow-hidden transition-all duration-200 shadow-[0_4px_15px_rgba(66,184,131,0.3)] hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(66,184,131,0.5)] active:translate-y-[1px] cursor-pointer" @click="handleClick">
+          <span class="relative z-10">Click Me</span>
+          <div class="absolute top-0 -left-[50%] w-[200%] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-[20deg] transition-all duration-750 group-hover:left-[120%]"></div>
         </button>
       </div>
 
       <transition name="slide-up">
-        <div v-if="message" class="message-box">
-          <span class="info-icon">✨</span>
-          <p class="message">{{ message }}</p>
+        <div v-if="message" class="flex items-center justify-center gap-3 mt-[30px] p-4 bg-[#42b883]/10 border border-[#42b883]/20 rounded-xl">
+          <span class="text-[1.2rem]">✨</span>
+          <p class="text-[#e2e8f0] font-medium text-[0.95rem] m-0">{{ message }}</p>
         </div>
       </transition>
     </section>
@@ -46,41 +46,8 @@ const handleClick = (): void => {
 </script>
 
 <style scoped>
-.home-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: calc(100vh - 100px);
-  padding: 20px;
-}
-
-.glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 24px;
-  padding: 50px 40px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-  width: 100%;
-  max-width: 580px;
-  text-align: center;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hero-card:hover {
-  border-color: rgba(66, 184, 131, 0.3);
-  box-shadow: 0 20px 50px rgba(66, 184, 131, 0.1);
-}
-
-.logo-animation {
-  margin-bottom: 24px;
-  display: inline-block;
+.animate-float {
   animation: float 4s ease-in-out infinite;
-}
-
-.vue-logo {
-  filter: drop-shadow(0 0 15px rgba(66, 184, 131, 0.4));
 }
 
 @keyframes float {
@@ -92,96 +59,6 @@ const handleClick = (): void => {
   }
 }
 
-.glow-text {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 16px;
-  background: linear-gradient(135deg, #42b883 0%, #35495e 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 2px 8px rgba(66, 184, 131, 0.2));
-}
-
-.description {
-  color: #a0aec0;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  margin-bottom: 35px;
-}
-
-.action-section {
-  display: flex;
-  justify-content: center;
-}
-
-.action-btn {
-  position: relative;
-  padding: 14px 32px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #ffffff;
-  background: linear-gradient(135deg, #42b883 0%, #2bb876 100%);
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 15px rgba(66, 184, 131, 0.3);
-}
-
-.action-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(66, 184, 131, 0.5);
-}
-
-.action-btn:active {
-  transform: translateY(1px);
-}
-
-.btn-glow {
-  position: absolute;
-  top: 0;
-  left: -50%;
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.2) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  transform: skewX(-20deg);
-  transition: 0.75s;
-}
-
-.action-btn:hover .btn-glow {
-  left: 120%;
-}
-
-.message-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 30px;
-  padding: 16px;
-  background: rgba(66, 184, 131, 0.1);
-  border: 1px solid rgba(66, 184, 131, 0.2);
-  border-radius: 12px;
-}
-
-.info-icon {
-  font-size: 1.2rem;
-}
-
-.message {
-  color: #e2e8f0;
-  font-weight: 500;
-  font-size: 0.95rem;
-  margin: 0;
-}
-
-/* Animations */
 .animate-fade-in {
   animation: fadeIn 0.8s ease-out;
 }
