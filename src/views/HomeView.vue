@@ -62,22 +62,26 @@
 
         <!-- Buttons -->
 
-        <div class="flex flex-wrap gap-4 sm:gap-5 mt-10">
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-6">
+  <!-- Primary Button -->
+  <button
+    @click="handleClick"
+    type="button"
+    class="inline-flex h-14 shrink-0 items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 px-8 text-base font-semibold text-white shadow-lg shadow-emerald-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:from-emerald-400 hover:to-teal-400 hover:shadow-xl hover:shadow-emerald-500/40 active:scale-95"
+  >
+    <span class="text-xl leading-none">🚀</span>
+    <span>Get Started</span>
+  </button>
 
-          <button
-            @click="handleClick"
-            class="px-8 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-white font-semibold transition duration-300 hover:scale-105 shadow-lg shadow-emerald-500/40"
-          >
-            🚀 Get Started
-          </button>
-
-          <button
-            class="px-8 py-4 rounded-xl border border-white/10 bg-white/5 text-white hover:bg-white/10 transition"
-          >
-            📖 Documentation
-          </button>
-
-        </div>
+  <!-- Secondary Button -->
+  <button
+    type="button"
+    class="inline-flex h-14 shrink-0 items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/5 px-8 text-base font-semibold text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:shadow-lg active:scale-95"
+  >
+    <span class="text-xl leading-none">📖</span>
+    <span>Documentation</span>
+  </button>
+</div>
 
         <!-- Feature Cards -->
 
