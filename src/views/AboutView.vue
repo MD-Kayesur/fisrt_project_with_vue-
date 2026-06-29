@@ -1,25 +1,25 @@
 <template>
-  <div class="about-container">
-    <div class="glass-card header-card animate-fade-in">
-      <h1 class="glow-text">About This Application</h1>
-      <p class="subtitle">
+  <div class="max-w-[1000px] mx-auto px-5 py-10 min-h-[calc(100vh-129px)]">
+    <div class="bg-white/5 backdrop-blur-[12px] border border-white/10 rounded-[20px] p-[30px] shadow-[0_8px_32px_0_rgba(0,0,0,0.2)] transition-all duration-[400ms] ease-[cubic-bezier(0.165,0.84,0.44,1)] text-center mb-10 border-[#42b883]/15 animate-fade-in">
+      <h1 class="text-[2.5rem] font-extrabold mb-3 bg-gradient-to-br from-[#42b883] to-[#35495e] bg-clip-text text-transparent drop-shadow-[0_2px_8px_rgba(66,184,131,0.2)]">About This Application</h1>
+      <p class="text-[1.1rem] text-[#a0aec0]">
         A modern, reactive workspace built with Vue 3, TypeScript, and Vite.
       </p>
     </div>
 
-    <div class="grid-layout">
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-6">
       <div 
         v-for="(tech, index) in techStack" 
         :key="tech.name"
-        class="glass-card tech-card"
+        class="bg-white/5 backdrop-blur-[12px] border border-white/10 rounded-[20px] p-[30px] shadow-[0_8px_32px_0_rgba(0,0,0,0.2)] transition-all duration-[400ms] ease-[cubic-bezier(0.165,0.84,0.44,1)] flex flex-col items-start animate-fade-in-up hover:-translate-y-2 hover:border-white/20 hover:shadow-[0_12px_40px_0_rgba(66,184,131,0.15)]"
         :style="{ animationDelay: `${(index + 1) * 150}ms` }"
       >
-        <div class="tech-icon-wrapper" :style="{ background: tech.color }">
-          <span class="tech-icon">{{ tech.icon }}</span>
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center text-[1.5rem] mb-5" :style="{ background: tech.color }">
+          <span>{{ tech.icon }}</span>
         </div>
-        <h3>{{ tech.name }}</h3>
-        <p>{{ tech.description }}</p>
-        <a :href="tech.link" target="_blank" rel="noopener" class="learn-more">
+        <h3 class="text-[1.3rem] text-white mb-2.5 font-bold">{{ tech.name }}</h3>
+        <p class="text-[#a0aec0] text-[0.95rem] leading-[1.5] mb-5 grow">{{ tech.description }}</p>
+        <a :href="tech.link" target="_blank" rel="noopener" class="text-[#42b883] no-underline font-semibold text-[0.9rem] transition-transform duration-200 ease-out hover:translate-x-1">
           Explore {{ tech.name }} →
         </a>
       </div>
@@ -71,102 +71,6 @@ const techStack = ref<TechItem[]>([
 </script>
 
 <style scoped>
-.about-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  min-height: calc(100vh - 129px);
-}
-
-.glass-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.header-card {
-  text-align: center;
-  margin-bottom: 40px;
-  border: 1px solid rgba(66, 184, 131, 0.15);
-}
-
-.glow-text {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 12px;
-  background: linear-gradient(135deg, #42b883 0%, #35495e 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 2px 8px rgba(66, 184, 131, 0.2));
-}
-
-.subtitle {
-  font-size: 1.1rem;
-  color: #a0aec0;
-}
-
-.grid-layout {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
-}
-
-.tech-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  animation: fadeInUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) both;
-}
-
-.tech-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 12px 40px 0 rgba(66, 184, 131, 0.15);
-}
-
-.tech-icon-wrapper {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-
-.tech-card h3 {
-  font-size: 1.3rem;
-  color: #fff;
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-
-.tech-card p {
-  color: #a0aec0;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  margin-bottom: 20px;
-  flex-grow: 1;
-}
-
-.learn-more {
-  color: #42b883;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: transform 0.2s ease;
-}
-
-.learn-more:hover {
-  transform: translateX(4px);
-}
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -178,8 +82,8 @@ const techStack = ref<TechItem[]>([
   }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.8s ease-out both;
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) both;
 }
 
 @keyframes fadeIn {
@@ -189,5 +93,9 @@ const techStack = ref<TechItem[]>([
   to {
     opacity: 1;
   }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out both;
 }
 </style>

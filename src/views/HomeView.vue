@@ -1,9 +1,9 @@
 <template>
-  <main class="flex items-center justify-center min-h-[calc(100vh-129px)] p-6 bg-[#1b1b1f]">
+  <main class="flex min-h-screen w-full items-center justify-center p-6 bg-[#1b1b1f]">
     <div class="w-full max-w-[480px] bg-[#202127] border border-white/10 rounded-2xl p-10 shadow-2xl text-center hover:border-emerald-500/30 transition-all duration-300 animate-fade-in">
       
       <!-- Logo Container -->
-      <div class="mb-8 inline-flex items-center justify-center w-16 h-16 bg-white/[0.02] border border-white/5 rounded-2xl shadow-inner animate-float">
+      <div class="mb-8  inline-flex items-center justify-center w-16 h-16 bg-white/[0.02] border border-white/5 rounded-2xl shadow-inner animate-float">
         <svg class="w-10 h-10 drop-shadow-[0_0_12px_rgba(66,184,131,0.3)]" viewBox="0 0 128 128">
           <path fill="#42b883" d="M78.8,10L64,35.4L49.2,10H0l64,110l64-110H78.8z"/>
           <path fill="#35495e" d="M78.8,10L64,35.4L49.2,10H25.6L64,76.5l38.4-66.5H78.8z"/>
@@ -16,7 +16,7 @@
       </h1>
 
       <!-- Description -->
-      <p class="text-slate-400 text-sm leading-relaxed mb-8 max-w-[360px] mx-auto">
+      <p class="text-slate-400 text-sm leading-relaxed mb-8  mx-auto">
         Welcome to your next-generation workspace. This setup features hot module replacement, reactive state, and strict type safety.
       </p>
 
