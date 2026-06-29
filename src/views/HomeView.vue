@@ -1,104 +1,183 @@
 <template>
-  <main class="flex min-h-screen w-full items-center justify-center p-6 bg-[#1b1b1f]">
-    <div class="w-full max-w-[480px] bg-[#202127] border border-white/10 rounded-2xl p-10 shadow-2xl text-center hover:border-emerald-500/30 transition-all duration-300 animate-fade-in">
-      
-      <!-- Logo Container -->
-      <div class="mb-8  inline-flex items-center justify-center w-16 h-16 bg-white/[0.02] border border-white/5 rounded-2xl shadow-inner animate-float">
-        <svg class="w-10 h-10 drop-shadow-[0_0_12px_rgba(66,184,131,0.3)]" viewBox="0 0 128 128">
-          <path fill="#42b883" d="M78.8,10L64,35.4L49.2,10H0l64,110l64-110H78.8z"/>
-          <path fill="#35495e" d="M78.8,10L64,35.4L49.2,10H25.6L64,76.5l38.4-66.5H78.8z"/>
-        </svg>
-      </div>
+  <main
+    class="min-h-screen bg-gradient-to-br from-[#111827] via-[#1e293b] to-[#0f172a] flex items-center justify-center p-6 overflow-hidden"
+  >
+    <!-- Background Blur -->
+    <div
+      class="absolute w-[500px] h-[500px] bg-emerald-500/20 rounded-full blur-[120px] top-[-100px] left-[-120px]"
+    />
 
-      <!-- Title -->
-      <h1 class="text-3xl font-extrabold text-white mb-4 tracking-tight">
-        Vue 3 + TypeScript
-      </h1>
+    <div
+      class="absolute w-[450px] h-[450px] bg-cyan-500/20 rounded-full blur-[120px] bottom-[-100px] right-[-100px]"
+    />
 
-      <!-- Description -->
-      <p class="text-slate-400 text-sm leading-relaxed mb-8  mx-auto">
-        Welcome to your next-generation workspace. This setup features hot module replacement, reactive state, and strict type safety.
-      </p>
+    <!-- Card -->
+    <section
+      class="relative z-10  w-full max-w-4xl rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_0_60px_rgba(0,0,0,.35)] overflow-hidden"
+    >
+      <div class="p-6 sm:p-10 md:p-14">
 
-      <!-- Button -->
-      <div class="flex justify-center">
-        <button 
-          class="px-8 py-3 text-sm font-semibold text-white bg-emerald-500 hover:bg-emerald-600 rounded-xl shadow-lg shadow-emerald-500/20 hover:shadow-xl hover:shadow-emerald-500/30 active:scale-95 transition-all duration-200 cursor-pointer"
-          @click="handleClick"
+        <!-- Logo -->
+        <div
+          class="w-24 h-24 rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 animate-float"
         >
-          Click Me
-        </button>
-      </div>
-
-      <!-- Reactive Message -->
-      <transition name="slide-up">
-        <div v-if="message" class="mt-6 p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-center gap-2">
-          <span class="text-emerald-400">✨</span>
-          <p class="text-[13px] font-medium text-emerald-300 m-0">{{ message }}</p>
+          <svg width="70" viewBox="0 0 128 128">
+            <path fill="#42b883"
+              d="M78.8,10L64,35.4L49.2,10H0l64,110l64-110H78.8z" />
+            <path fill="#35495e"
+              d="M78.8,10L64,35.4L49.2,10H25.6L64,76.5l38.4-66.5H78.8z" />
+          </svg>
         </div>
-      </transition>
 
-    </div>
+        <!-- Badge -->
+
+        <div
+          class="inline-flex px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-400/20 text-emerald-300 text-sm font-medium mb-6"
+        >
+          Vue 3 • TypeScript • TailwindCSS
+        </div>
+
+        <!-- Title -->
+
+        <h1
+          class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight tracking-tight"
+        >
+          Build Modern
+          <span
+            class="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent"
+          >
+            Vue Apps
+          </span>
+        </h1>
+
+        <!-- Description -->
+
+        <p
+          class="mt-6 text-slate-300 text-lg leading-8 max-w-2xl"
+        >
+          A beautiful starter template powered by Vue 3,
+          TypeScript, TailwindCSS and Vite. Fast, scalable,
+          responsive and production ready.
+        </p>
+
+        <!-- Buttons -->
+
+        <div class="flex flex-wrap gap-4 sm:gap-5 mt-10">
+
+          <button
+            @click="handleClick"
+            class="px-8 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-white font-semibold transition duration-300 hover:scale-105 shadow-lg shadow-emerald-500/40"
+          >
+            🚀 Get Started
+          </button>
+
+          <button
+            class="px-8 py-4 rounded-xl border border-white/10 bg-white/5 text-white hover:bg-white/10 transition"
+          >
+            📖 Documentation
+          </button>
+
+        </div>
+
+        <!-- Feature Cards -->
+
+        <div
+          class="grid md:grid-cols-3 gap-6 mt-14"
+        >
+
+          <div
+            class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-emerald-400/30 transition hover:-translate-y-2"
+          >
+            <div class="text-3xl mb-4">⚡</div>
+
+            <h3 class="text-white font-bold text-lg">
+              Fast Development
+            </h3>
+
+            <p class="text-slate-400 mt-2">
+              Hot Module Replacement with Vite.
+            </p>
+
+          </div>
+
+          <div
+            class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-400/30 transition hover:-translate-y-2"
+          >
+            <div class="text-3xl mb-4">🛡</div>
+
+            <h3 class="text-white font-bold text-lg">
+              Type Safe
+            </h3>
+
+            <p class="text-slate-400 mt-2">
+              Built with TypeScript support.
+            </p>
+
+          </div>
+
+          <div
+            class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-400/30 transition hover:-translate-y-2"
+          >
+            <div class="text-3xl mb-4">🚀</div>
+
+            <h3 class="text-white font-bold text-lg">
+              Production Ready
+            </h3>
+
+            <p class="text-slate-400 mt-2">
+              Optimized for deployment.
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- Success Message -->
+
+        <transition name="slide">
+          <div
+            v-if="message"
+            class="mt-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 p-5 text-emerald-300"
+          >
+            ✨ {{ message }}
+          </div>
+        </transition>
+
+      </div>
+    </section>
   </main>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
 
-const title = ref<string>("Vue 3 + TypeScript");
+const message = ref("");
 
-const description = ref<string>(
-  "Welcome to your next-generation workspace. This setup features hot module replacement, reactive state, and strict type safety."
-);
-
-const message = ref<string>("");
-
-const handleClick = (): void => {
-  message.value = "Hello! You've successfully triggered a reactive state change.";
+const handleClick = () => {
+  message.value =
+    "Congratulations! Your Vue 3 application is working perfectly.";
 };
 </script>
 
 <style scoped>
 .animate-float {
-  animation: float 4s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
 }
 
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-12px);
   }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.8s ease-out;
+.slide-enter-active,
+.slide-leave-active {
+  transition: all .35s;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.slide-up-enter-active,
-.slide-up-leave-active {
-  transition: all 0.3s ease-out;
-}
-
-.slide-up-enter-from {
+.slide-enter-from,
+.slide-leave-to {
   opacity: 0;
-  transform: translateY(10px);
-}
-
-.slide-up-leave-to {
-  opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(20px);
 }
 </style>
